@@ -6,6 +6,7 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   this._oldStep = Dancer.prototype.step;
   //call Dancer constructor passing in the
   //BlinkyDancer instance as an argument,with the other arguments
+  this.$node = $('<span class="dancer"></span>');
   Dancer.apply(this, arguments);
 
 };
