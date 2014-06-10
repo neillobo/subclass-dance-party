@@ -1,4 +1,3 @@
-
 var BlinkyDancer = function(top, left, timeBetweenSteps){
   //this = new object of Dancer prototype
   // this.step is overrriden with a new step function
@@ -7,8 +6,8 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   //call Dancer constructor passing in the
   //BlinkyDancer instance as an argument,with the other arguments
   this.$node = $('<span class="dancer"></span>');
-  Dancer.apply(this, arguments);
-
+  timeBetweenSteps = timeBetweenSteps*10;
+  Dancer.call(this, top, left, timeBetweenSteps);
 };
 
 BlinkyDancer.prototype = Object.create(Dancer.prototype);

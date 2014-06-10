@@ -1,6 +1,4 @@
 var BouncyDancer = function (top, left, timeBetweenSteps) {
-
-
   this.$node = $('<span class="bouncy-dancer"></span>');
   Dancer.apply(this, arguments);
   // this.step();
@@ -18,21 +16,21 @@ BouncyDancer.prototype.step = function(){
   var width = $("body").width();
   var height = $("body").height();
 
-  if((this.left < width-25) && (this.left>25)){
-    this.left += this.leftIncr;
-  } else {
+  if((this.left > width-25) || (this.left<25)){
     this.leftIncr = this.leftIncr * (-1);
-    this.left += this.leftIncr;
   }
-  if((this.top < height-25) && (this.top>25)){
-    this.top += this.topIncr;
-  } else {
+
+  if((this.top > height-25) || (this.top<25)){
     this.topIncr = this.topIncr * (-1);
-    this.top += this.topIncr;
   }
+  this.left += this.leftIncr;
+  this.top += this.topIncr;
   this.setPosition(this.top, this.left);
 };
 
+BouncyDancer.prototype.lineup=function(){
+  console.log("Bouncy Dancer Lined Up");
+}
 
 var randomize = function(){
   return Math.sin(Math.random()*10)* 5;

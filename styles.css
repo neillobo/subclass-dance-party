@@ -11,7 +11,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .lineUpButton {
   padding:5px 12px;
   float:right;
 }
@@ -27,8 +27,15 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
 .bouncy-dancer{
   border:10px solid blue;
   border-radius:10px;
+  position:absolute;
+}
+
+.smooth-dancer{
+  border:5px solid green;
+  border-radius:6px;
   position:absolute;
 }

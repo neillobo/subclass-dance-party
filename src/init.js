@@ -1,7 +1,14 @@
 $(document).ready(function(){
   window.dancers = [];
 
-  $(".addDancerButton").on("click", function(event){
+  $(".lineUpButton").on("click", function () {
+    console.log("Works");
+    for (var i = 0; i < window.dancers.length;i++){
+      window.dancers[i].lineup();
+    }
+  });
+
+  $(".addDancerButton").on("click", function(){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
      * As long as the "data-dancer-maker-function-name" attribute of a
@@ -25,9 +32,10 @@ $(document).ready(function(){
     var dancer = new dancerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
-      Math.random() * 500
+      Math.random() * 100
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 });
 
