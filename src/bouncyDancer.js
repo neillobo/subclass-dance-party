@@ -1,8 +1,6 @@
 var BouncyDancer = function (top, left, timeBetweenSteps) {
-  // this.$node = $('<img class="bouncy-dancer" src="http://sl.glitter-graphics.net/pub/862/862499tz159cosm5.gif">');
   this.$node = $('<span class="bouncy-dancer"></span>');
   Dancer.apply(this, arguments);
-  // this.step();
   this.leftIncr = randomize();
   this.topIncr = randomize();
   this._delay = 500;
@@ -14,7 +12,7 @@ BouncyDancer.prototype.constructor = BouncyDancer;
 BouncyDancer.prototype.step = function(){
   Dancer.prototype.step.call(this);
   //if this.left > current width of window STOP!
-  //if this.top > current height of window STOP
+  //if this.top > current height of window STOP!
   var width = $("body").width();
   var height = $("body").height();
 

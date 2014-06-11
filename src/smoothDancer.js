@@ -1,5 +1,4 @@
 var SmoothDancer = function(top, left, timeBetweenSteps){
-  // this.$node = $('<img class="smooth-dancer" src="http://puu.sh/41mP0.gif">');
   this.$node = $('<span class="smooth-dancer"></span>');
   Dancer.apply(this, arguments);
   this._t = 0;

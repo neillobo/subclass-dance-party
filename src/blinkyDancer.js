@@ -4,7 +4,7 @@ var BlinkyDancer = function(top, left, timeBetweenSteps){
   // keep a reference to the old Dancer step
   //call Dancer constructor passing in the
   //BlinkyDancer instance as an argument,with the other arguments
-  this.$node = $('<span class="dancer"></span>');
+  this.$node = $('<span class="blinky-dancer"></span>');
   timeBetweenSteps = timeBetweenSteps;
   Dancer.call(this, top, left, timeBetweenSteps);
   this._delay = 1000;
