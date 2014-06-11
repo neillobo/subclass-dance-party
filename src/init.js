@@ -1,5 +1,22 @@
-$(document).ready(function(){
+ $(document).ready(function(){
   window.dancers = [];
+
+  $("button.random").on("click", function () {
+    var searchTerm = encodeURIComponent($(".search").val());
+    searchTerm = 'http://api.giphy.com/v1/gifs/search?q='+searchTerm+'&api_key=dc6zaTOxFJmzC';
+    $.getJSON(searchTerm, function (data) {
+      var url = data.data[0].images.fixed_height.url;
+      console.log(url);
+      var dancer = new RandomDancer(
+        $("body").height() * Math.random(),
+        $("body").width() * Math.random(),
+        Math.random() * 100,
+        url
+      );
+      $('body').append(dancer.$node);
+      window.dancers.push(dancer);
+    });
+  });
 
   $(".lineUpButton").on("click", function () {
     console.log("Works");
@@ -8,6 +25,26 @@ $(document).ready(function(){
     }
   });
 
+  setInterval(function(){
+    var other,current,distance;
+    for(var i=0;i<window.dancers.length;i++){
+      current = window.dancers[i];
+      for(j=i+1;j<window.dancers.length;j++){
+        other = window.dancers[j];
+        distance = Math.sqrt(Math.pow((other.top-current.top), 2)+Math.pow((other.left-current.left),2));
+        if (distance <100){
+          // console.log(distance);
+          if(current instanceof BouncyDancer){
+            current.leftIncr = current.leftIncr*(-1);
+          }
+          if(other instanceof BouncyDancer){
+            other.leftIncr = other.leftIncr*(-1);
+          }
+        }
+
+      }
+    }
+  },200 );
   $(".addDancerButton").on("click", function(){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.

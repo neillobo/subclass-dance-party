@@ -1,10 +1,12 @@
 var SmoothDancer = function(top, left, timeBetweenSteps){
+  // this.$node = $('<img class="smooth-dancer" src="http://puu.sh/41mP0.gif">');
   this.$node = $('<span class="smooth-dancer"></span>');
   Dancer.apply(this, arguments);
   this._t = 0;
   this._radius = Math.floor(Math.random()*250);
   this._initLeft = left;
   this._initTop = top;
+  this._delay = 2000;
 };
 
 SmoothDancer.prototype = Object.create(Dancer.prototype);
@@ -18,3 +20,4 @@ SmoothDancer.prototype.step = function(){
 
   this.setPosition(this.top, this.left);
 };
+
